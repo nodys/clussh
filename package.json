@@ -6,9 +6,13 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "clussh": "./bin/clussh.js",
+    "clussh-board": "./bin/clussh-board.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodys/clussh.git"
+    "url": "https://github.com/nodys/clussh.git"
   },
   "keywords": [
     "ssh",
@@ -23,5 +27,22 @@
   "bugs": {
     "url": "https://github.com/nodys/clussh/issues"
   },
-  "homepage": "https://github.com/nodys/clussh#readme"
+  "homepage": "https://github.com/nodys/clussh#readme",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "execa": "^0.8.0",
+    "fs-extra": "^4.0.2",
+    "lodash": "^4.17.4",
+    "mississippi": "^1.3.0",
+    "ms": "^2.0.0",
+    "nanoid": "^1.0.1",
+    "p-queue": "^2.3.0",
+    "p-timeout": "^2.0.1",
+    "rc": "^1.2.2",
+    "split2": "^2.2.0",
+    "yargs": "^10.0.3"
+  }
 }
