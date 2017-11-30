@@ -1,0 +1,27 @@
+{
+  "name": "clussh",
+  "version": "0.0.1",
+  "description": "Stream tasks to shell workers through ssh",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodys/clussh.git"
+  },
+  "keywords": [
+    "ssh",
+    "worker",
+    "parallel",
+    "scale",
+    "stream",
+    "ldjson"
+  ],
+  "author": "Jean Ponchon <jean.ponchon@novadiscovery.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodys/clussh/issues"
+  },
+  "homepage": "https://github.com/nodys/clussh#readme"
+}
