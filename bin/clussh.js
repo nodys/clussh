@@ -16,7 +16,8 @@ const config = yargs
   .option('retry', {
     description: 'How many retry for each task',
     type: 'number',
-    default: 0
+    default: 0,
+    alias: 'r'
   })
   .option('timeout', {
     description: 'Task timeout in millisecond or parseable ms time (eg. 1h, 2d or `3 days`)',
@@ -37,25 +38,44 @@ const config = yargs
     alias: 'c',
     default: 1
   })
+  .option('cmd', {
+    description: 'Command to execute',
+    type: 'string'
+  })
+  .option('script', {
+    description: 'Script to execute (please ensure proper exit)',
+    normalize: true,
+    type: 'string'
+  })
   .parse()
 
-const shellFilepath = config._[0]
-
-try {
-  if (!fs.statSync(shellFilepath).isFile()) { throw new Error('Not a file') }
-} catch (error) {
-  console.error('Missing valid worker filepath')
-  process.exit(1)
+if (config._[0]) {
+  config.script = config._[0]
 }
 
-config.shellFilepath = shellFilepath
+if (config.script) {
+  try {
+    if (!fs.statSync(config.script).isFile()) { throw new Error('Script is not a file') }
+  } catch (error) {
+    console.error('Missing valid worker filepath')
+    process.exit(1)
+  }
+}
 
-process.stdin
-  .pipe(split())
-  .pipe(miss.through.obj(function (line, enc, done) {
-    try { this.push(JSON.parse(line)) } catch (ignore) {}
-    done()
-  }))
+let stream
+
+if (process.stdin.isTTY) {
+  stream = miss.from.obj(config.host.map(uri => ({ worker: uri })))
+} else {
+  stream = process.stdin
+    .pipe(split())
+    .pipe(miss.through.obj(function (line, enc, done) {
+      try { this.push(JSON.parse(line)) } catch (ignore) {}
+      done()
+    }))
+}
+
+stream
   .pipe(clussh(config))
   .pipe(miss.through.obj(function (data, enc, done) { this.push(JSON.stringify(data) + '\n'); done() }))
   .pipe(process.stdout)
