@@ -11,7 +11,7 @@ const ms = require('ms')
 const APPNAME = path.basename(__filename, path.extname(__filename))
 
 const config = yargs
-  .usage(`${APPNAME} [options] <worker filepath>`)
+  .usage(`${APPNAME} [options] [script filepath]`)
   .config(rc(APPNAME, {}))
   .option('retry', {
     description: 'How many retry for each task',
@@ -27,13 +27,13 @@ const config = yargs
       return ms(value)
     }
   })
-  .option('host', {
-    description: 'Repeatable host name list using url syntax. Only ssh is supported',
+  .option('worker', {
+    description: 'Repeatable worker uri list',
     type: 'array',
     default: `ssh://${process.env.USER}@localhost`
   })
   .option('concurrency', {
-    description: 'Concurrency per host',
+    description: 'Concurrency per worker',
     type: 'number',
     alias: 'c',
     default: 1
@@ -42,6 +42,11 @@ const config = yargs
     description: 'Command to execute',
     type: 'string'
   })
+  .option('scale', {
+    description: 'Default scale',
+    type: 'number',
+    default: 1
+  })
   .option('script', {
     description: 'Script to execute (please ensure proper exit)',
     normalize: true,
@@ -49,10 +54,12 @@ const config = yargs
   })
   .parse()
 
+// Check for the shell script to run (if any)
 if (config._[0]) {
   config.script = config._[0]
 }
 
+// If a script is provided, must be a file
 if (config.script) {
   try {
     if (!fs.statSync(config.script).isFile()) { throw new Error('Script is not a file') }
@@ -62,15 +69,21 @@ if (config.script) {
   }
 }
 
+// Create a read stream:
+// - A list of task from stdout
+// - A list of task, generated in order to run on all available worker
 let stream
 
 if (process.stdin.isTTY) {
-  stream = miss.from.obj(config.host.map(uri => ({ worker: uri })))
+  stream = miss.from.obj(config.worker.map(uri => ({
+    worker: uri,
+    scale: config.scale
+  })))
 } else {
   stream = process.stdin
     .pipe(split())
     .pipe(miss.through.obj(function (line, enc, done) {
-      try { this.push(JSON.parse(line)) } catch (ignore) {}
+      this.push(JSON.parse(line))
       done()
     }))
 }
