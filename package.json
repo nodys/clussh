@@ -7,7 +7,8 @@
     "test": "mocha",
     "test:watch": "mocha -w",
     "coverage": "nyc mocha",
-    "coverage:html": "npm run coverage && nyc report --reporter=html"
+    "coverage:html": "npm run coverage && nyc report --reporter=html",
+    "lint": "standard"
   },
   "bin": {
     "clussh": "./bin/clussh.js",
@@ -55,5 +56,8 @@
     "rc": "^1.2.2",
     "split2": "^2.2.0",
     "yargs": "^10.0.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

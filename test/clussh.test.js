@@ -177,6 +177,6 @@ describe('clussh', function () {
   })
 
   it('should ping server waiting for it to revive', function () {
-    
+
   })
 })
