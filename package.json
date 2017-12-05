@@ -4,11 +4,12 @@
   "description": "Stream tasks to shell workers through ssh",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm run lint && mocha",
     "test:watch": "mocha -w",
     "coverage": "nyc mocha",
     "coverage:html": "npm run coverage && nyc report --reporter=html",
-    "lint": "standard"
+    "lint": "standard",
+    "release": "npm test && standard-version"
   },
   "bin": {
     "clussh": "./bin/clussh.js",
@@ -39,7 +40,8 @@
     "chai-as-promised": "^7.1.1",
     "mocha": "^4.0.1",
     "nyc": "^11.3.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "standard-version": "^4.2.0"
   },
   "dependencies": {
     "chalk": "^2.3.0",
