@@ -22,7 +22,7 @@ const config = yargs
   .option('timeout', {
     description: 'Task timeout in millisecond or parseable ms time (eg. 1h, 2d or `3 days`)',
     type: 'string',
-    default: '1d',
+    default: '10d',
     coerce: function (value) {
       return ms(value)
     }

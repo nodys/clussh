@@ -4,12 +4,16 @@
   "description": "Stream tasks to shell workers through ssh",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:watch": "mocha -w",
+    "coverage": "nyc mocha",
+    "coverage:html": "npm run coverage && nyc report --reporter=html"
   },
   "bin": {
     "clussh": "./bin/clussh.js",
     "clussh-board": "./bin/clussh-board.js",
-    "clussh-log": "./bin/clussh-log.js"
+    "clussh-log": "./bin/clussh-log.js",
+    "clussh-stdout": "./bin/clussh-stdout.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +34,10 @@
   },
   "homepage": "https://github.com/nodys/clussh#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
     "standard": "^10.0.3"
   },
   "dependencies": {
