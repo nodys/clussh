@@ -3,10 +3,10 @@ const yargs = require('yargs')
 const path = require('path')
 const rc = require('rc')
 const miss = require('mississippi')
-const split = require('split2')
 const fs = require('fs-extra')
 const clussh = require('..')
 const ms = require('ms')
+const leazyJsonStream = require('../lib/leazy-ndjson-stream.js')
 
 const APPNAME = path.basename(__filename, path.extname(__filename))
 
@@ -23,6 +23,7 @@ const config = yargs
     description: 'Task timeout in millisecond or parseable ms time (eg. 1h, 2d or `3 days`)',
     type: 'string',
     default: '10d',
+    alias: 't',
     coerce: function (value) {
       return ms(value)
     }
@@ -30,6 +31,7 @@ const config = yargs
   .option('worker', {
     description: 'Repeatable worker uri list',
     type: 'array',
+    alias: 'w',
     default: `ssh://${process.env.USER}@localhost`
   })
   .option('concurrency', {
@@ -38,14 +40,15 @@ const config = yargs
     alias: 'c',
     default: 1
   })
+  .option('scale', {
+    description: 'Default scale',
+    alias: 's',
+    type: 'number',
+    default: 1
+  })
   .option('cmd', {
     description: 'Command to execute',
     type: 'string'
-  })
-  .option('scale', {
-    description: 'Default scale',
-    type: 'number',
-    default: 1
   })
   .option('script', {
     description: 'Script to execute (please ensure proper exit)',
@@ -81,11 +84,7 @@ if (process.stdin.isTTY) {
   })))
 } else {
   stream = process.stdin
-    .pipe(split())
-    .pipe(miss.through.obj(function (line, enc, done) {
-      this.push(JSON.parse(line))
-      done()
-    }))
+    .pipe(leazyJsonStream())
 }
 
 stream
