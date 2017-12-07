@@ -9,7 +9,7 @@
     "coverage": "nyc mocha",
     "coverage:html": "npm run coverage && nyc report --reporter=html",
     "lint": "standard",
-    "docs": "docsify init docs --local",
+    "docs": "cp README.md ./docs/README.md",
     "release": "npm test && npm run docs && standard-version"
   },
   "bin": {

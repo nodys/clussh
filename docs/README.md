@@ -17,7 +17,7 @@ Stream task execution, through ssh, to one or many host, one or many times, in p
 
 ## Installation
 
-```sh
+```bash
 npm install -g clussh
 ```
 
@@ -30,7 +30,7 @@ This will install three command-line cli:
 
 ## Usages & exemples
 
-```sh
+```bash
 # Run "Hello $(hostname)" on the default worker ssh://yourusername@localhost
 clussh
 
@@ -76,7 +76,7 @@ tail -f output.log | ndjson-filter 'd.type === "fail"' | prettyldjson # Another
 
 ## Command line usage and configuration
 
-```sh
+```bash
 clussh [options] [script filepath]
 
 Options:
