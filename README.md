@@ -26,7 +26,7 @@ This will install three command-line cli:
 ## Usages & exemples
 
 <center>
-![](https://nodys.github.io/clussh/docs/img/clussh-shell.gif)
+![](https://nodys.github.io/clussh/img/clussh-shell.gif)
 </center>
 
 ---
