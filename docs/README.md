@@ -3,6 +3,11 @@
 
 Stream task execution, through ssh, to one or many host, one or many times, in parallel or in series.
 
+
+<p align="center">
+  <img src="https://nodys.github.io/clussh/img/clussh-shell.gif" alt="clussh">
+</p>
+
 ## Features:
 
 - Distribute tasks upon many hosts
@@ -24,12 +29,6 @@ This will install three command-line cli:
 *Pre-requirement: [NodeJS](https://nodejs.org/) and its awesome [universe](https://node.cool)*
 
 ## Usages & exemples
-
-<center>
-![](https://nodys.github.io/clussh/img/clussh-shell.gif)
-</center>
-
----
 
 ```sh
 # Run "Hello $(hostname)" on the default worker ssh://yourusername@localhost
