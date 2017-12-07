@@ -9,7 +9,8 @@
     "coverage": "nyc mocha",
     "coverage:html": "npm run coverage && nyc report --reporter=html",
     "lint": "standard",
-    "release": "npm test && standard-version"
+    "docs": "docsify init docs",
+    "release": "npm test && npm run docs && standard-version"
   },
   "bin": {
     "clussh": "./bin/clussh.js",
