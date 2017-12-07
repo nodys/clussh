@@ -10,7 +10,10 @@
     "coverage:html": "npm run coverage && nyc report --reporter=html",
     "lint": "standard",
     "docs": "cp README.md ./docs/README.md",
-    "release": "npm test && npm run docs && standard-version"
+    "release": "npm test && npm run docs && standard-version",
+    "release:major": "npm run release -- --release-as major",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:patch": "npm run release -- --release-as patch"
   },
   "bin": {
     "clussh": "./bin/clussh.js",
