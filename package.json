@@ -66,5 +66,10 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "standard": {
+    "ignore": [
+      "/docs/"
+    ]
   }
 }
