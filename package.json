@@ -71,5 +71,6 @@
     "ignore": [
       "/docs/"
     ]
-  }
+  },
+  "reveal": true
 }
