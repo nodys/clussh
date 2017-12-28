@@ -86,11 +86,12 @@ Options:
   --timeout, -t      Task timeout in millisecond or parseable ms time (eg. 1h,
                      2d or `3 days`)                   [string] [default: "10d"]
   --worker, -w       Repeatable worker uri list
-                                   [array] [default: "ssh://yourusername@localhost"]
+                                   [array] [default: "ssh://jponchon@localhost"]
   --concurrency, -c  Concurrency per worker                [number] [default: 1]
   --scale, -s        Default scale                         [number] [default: 1]
   --cmd              Command to execute                                 [string]
   --script           Script to execute (please ensure proper exit)      [string]
+  --identity, -i     List ssh identity files to use        [array] [default: []]
 ```
 
 
