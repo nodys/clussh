@@ -55,6 +55,13 @@ const config = yargs
     normalize: true,
     type: 'string'
   })
+  .option('identity', {
+    description: 'List identity files to use with ssh',
+    type: 'array',
+    alias: 'i',
+    normalize: true,
+    default: []
+  })
   .parse()
 
 // Check for the shell script to run (if any)

@@ -9,7 +9,7 @@
     "coverage": "nyc mocha",
     "coverage:html": "npm run coverage && nyc report --reporter=html",
     "lint": "standard",
-    "docs": "cp README.md ./docs/README.md",
+    "docs": "ln -f README.md ./docs/README.md && git commit -m 'doc: Update documentation' ./docs/README.md ./README.md > /dev/null && echo 'doc: Changes commited' || echo 'doc: No change'",
     "release": "npm test && npm run docs && standard-version",
     "release:major": "npm run release -- --release-as major",
     "release:minor": "npm run release -- --release-as minor",
