@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/nodys/clussh/compare/v1.3.0...v2.0.0) (2018-04-25)
+
+
+### Features
+
+* Enhance worker dispatching and server ping ([595297d](https://github.com/nodys/clussh/commit/595297d))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/nodys/clussh/compare/v1.2.1...v1.3.0) (2018-04-25)
 
