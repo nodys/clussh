@@ -165,7 +165,7 @@ describe('clussh', function () {
       .to.eql(FRACT * 10, 'Expect distribution consistant with worker speed ratio')
   })
 
-  it('Should handle server death', async function () {
+  it.skip('Should handle server death (skipped since deprecated - now wait for server back)', async function () {
     runnerSsh.execa = makeMockExeca({ code: 255 })
     const { summary, outputBuffer } = await run([{}], { timeout: '1s' })
     const workerState = outputBuffer
