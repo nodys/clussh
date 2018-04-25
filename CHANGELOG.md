@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/nodys/clussh/compare/v1.2.1...v1.3.0) (2018-04-25)
+
+
+### Features
+
+* Add host on logs ([de2cd74](https://github.com/nodys/clussh/commit/de2cd74))
+* Enhance clussh-log output ([b77fe3f](https://github.com/nodys/clussh/commit/b77fe3f))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/nodys/clussh/compare/v1.2.0...v1.2.1) (2018-01-15)
 
