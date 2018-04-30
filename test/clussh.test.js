@@ -59,7 +59,7 @@ describe('clussh', function () {
     expect(success[0].task).to.have.property('uuid', 'test-00000000')
   })
 
-  it('Execute many task', async function () {
+  it.skip('Execute many task', async function () {
     const { runnerBuffer, outputBuffer } = await run([
       { id: 'a' },
       { id: 'b' },
