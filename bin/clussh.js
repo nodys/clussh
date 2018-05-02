@@ -62,6 +62,12 @@ const config = yargs
     normalize: true,
     default: []
   })
+  .option('port-control', {
+    description: 'Open repl controller at given port',
+    type: 'number',
+    alias: 'p',
+    default: 0
+  })
   .parse()
 
 // Check for the shell script to run (if any)
