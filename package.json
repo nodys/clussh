@@ -1,6 +1,6 @@
 {
   "name": "clussh",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "Stream tasks to shell workers through ssh",
   "main": "index.js",
   "scripts": {
