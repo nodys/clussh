@@ -63,9 +63,14 @@ const config = yargs
     default: []
   })
   .option('port-control', {
-    description: 'Open repl controller at given port',
+    description: 'Open repl controller at given port (experimental - api subject to change)',
     type: 'number',
     alias: 'p',
+    default: 0
+  })
+  .option('port-http', {
+    description: 'Open local http server at given port (alpha - api subject to change)',
+    type: 'number',
     default: 0
   })
   .parse()
