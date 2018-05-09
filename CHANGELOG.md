@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/nodys/clussh/compare/v2.4.0...v2.5.0) (2018-05-09)
+
+
+### Bug Fixes
+
+* Clussh board does not appear on first flush ([454697c](https://github.com/nodys/clussh/commit/454697c))
+* Worker concurrency must be mapped on queue concurrency ([0bfbe7b](https://github.com/nodys/clussh/commit/0bfbe7b))
+* **repl:** Refactor in a module ([7c54cf4](https://github.com/nodys/clussh/commit/7c54cf4))
+* **test:** Remove exit process that kill test ([33545b8](https://github.com/nodys/clussh/commit/33545b8))
+
+
+### Features
+
+* Add a http controller (alpha) ([37294f5](https://github.com/nodys/clussh/commit/37294f5))
+* Map worker hostname on server ([91936c2](https://github.com/nodys/clussh/commit/91936c2))
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/nodys/clussh/compare/v2.3.3...v2.4.0) (2018-05-05)
 
